@@ -1,0 +1,8 @@
+= twitter_bootstrap_form_for @request do |request|
+	= request.inputs 'Submit a Reimbursement Request' do
+		= request.text_field :name, :placeholder => "JoeMc"
+		= request.text_field :email, :placeholder => "joemc@mit.edu"
+		= request.text_field :item, :placeholder => "Supplies for SW"
+		= request.text_field :amount, :placeholder => "$42.12"
+	= request.actions do
+		= request.submit "Submit Reimbursement"
