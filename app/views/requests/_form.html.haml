@@ -1,12 +1,31 @@
 = form_for(@request) do |request|
-	.new_request_item
-		= request.text_field :name, :placeholder => "JoeMc"
-	.new_request_item
-		= request.email_field :email, :placeholder => "joemc@mit.edu"
-	.new_request_item
-		= request.text_area :item, :placeholder => "Supplies for SW", :rows => "4"
-	.new_request_item
-		= request.text_field :amount, :placeholder => "$42.12"
-	.new_request_item
-		= request.select(:budget, options_for_select(['Pres', 'VP']))
-	= submit_tag "Submit Reimbursement", :class => 'btn btn-primary'
+	.row
+		= request.label :name, 'Name', :class => 'span2'
+		= request.text_field :name, :placeholder => "JoeMc", :class => 'span4'
+	.row
+		= request.label :email, 'Email', :class => 'span2'
+		= request.email_field :email, :placeholder => "joemc@mit.edu", :class => 'span4'
+	.row
+		= request.label :item, 'Description', :class => 'span2'
+		= request.text_area :item, :placeholder => "Supplies for SW - $31.00, Gas - $11.12", :rows => "4", :class => 'span4'
+	.row
+		= request.label :amount, 'Total', :class => 'span2'
+		= request.text_field :amount, :placeholder => "$42.12", :class => 'span4'
+	.row
+		= request.label :budget, 'Budget', :class => 'span2'
+		= request.select(:budget, options_for_select(['President', 'VP', 'Commissar', 'Inductor', 'PM', 'Rush', 'Social', 'IT']), {}, {:class => 'span4'})
+	.row
+		.span2
+			= request.radio_button :paymentmethod, 'Housebill', :class => 'inline request_radio_button'
+			= request.label :paymentmethod, 'Housebill', :class => 'inline request_radio_button'
+	.row
+		.span2
+			= request.radio_button :paymentmethod, 'Check', :class => 'inline'
+			= request.label :paymentmethod, 'Check', :value => 'Check', :class => 'inline'
+		= request.text_field :payable, :placeholder => 'Joseph McMahon', :class => 'inline span4'
+	.row
+		.span2
+			= request.label :filepicker_url, 'Upload file'
+		= request.filepicker_field :filepicker_url
+	.row
+		= submit_tag "Submit Reimbursement", :class => 'btn btn-primary offset2	'

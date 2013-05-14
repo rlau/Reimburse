@@ -8,6 +8,7 @@ gem 'rails', '3.2.13'
 gem 'pg'
 gem 'haml'
 gem 'twitter_bootstrap_form_for'
+gem 'filepicker-rails'
 
 
 # Gems used only for assets and not required

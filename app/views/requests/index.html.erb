@@ -7,7 +7,9 @@
     <th>Item</th>
     <th>Amount</th>
     <th>Budget</th>
-    <th></th>
+    <th>Method</th>
+    <th>Payable To</th>
+    <th>Receipt URL</th>
   </tr>
 
 <% @requests.each do |request| %>
@@ -17,6 +19,9 @@
     <td><%= request.item %></td>
     <td><%= request.amount %></td>
     <td><%= request.budget %></td>
+    <td><%= request.paymentmethod %></td>
+    <td><%= request.payable %></td>
+    <td><a href=<%= request.filepicker_url %>> Receipt </a></td>
     <td><%= link_to 'Show', request %></td>
     <td><%= link_to 'Edit', edit_request_path(request) %></td>
     <td><%= link_to 'Destroy', request, method: :delete, data: { confirm: 'Are you sure?' } %></td>

@@ -11,16 +11,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130513062603) do
+ActiveRecord::Schema.define(:version => 20130514020953) do
 
   create_table "requests", :force => true do |t|
     t.string   "name"
     t.string   "email"
     t.string   "amount"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.string   "item"
     t.string   "budget"
+    t.string   "paymentmethod"
+    t.string   "payable"
+    t.string   "filepicker_url"
   end
 
 end
